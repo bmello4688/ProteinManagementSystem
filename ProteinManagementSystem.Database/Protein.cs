@@ -7,9 +7,9 @@ namespace ProteinManagementSystem.Database
     public class Protein
     {
         //TODO: Find out constraints
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public string Sequence { get; set; }
+        public string AminoAcidSequence { get; private set; }
 
         public double IsoelectricPoint { get; set; }
 
@@ -22,15 +22,11 @@ namespace ProteinManagementSystem.Database
         public string DiscoveredBy { get; set; }
 
         //TODO:Find out what information is required. For now all will be.
-        public Protein(string name, string sequence, double isoelectricPoint, uint molecularWeight, string description, DateTime dateDiscovered, string discoveredBy)
+        public Protein(string name, string aminoAcidSequence, string description)
         {
             Name = name;
-            Sequence = sequence;
-            IsoelectricPoint = isoelectricPoint;
-            MolecularWeight = molecularWeight;
+            AminoAcidSequence = aminoAcidSequence;
             Description = description;
-            DateDiscovered = dateDiscovered;
-            DiscoveredBy = discoveredBy;
         }
     }
 }
