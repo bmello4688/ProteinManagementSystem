@@ -26,6 +26,8 @@ namespace ProteinManagementSystem.Database.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Proteins.AddOrUpdate(protein => protein.Name, ExcelToProteinDataExtractor.GetProteins().ToArray());
         }
     }
 }

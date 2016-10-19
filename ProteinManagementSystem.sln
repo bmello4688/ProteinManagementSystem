@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProteinManagementSystem.Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProteinManagementSystem.Database", "ProteinManagementSystem.Database\ProteinManagementSystem.Database.csproj", "{5FF3382A-41F1-494B-9495-F2B80C83C21D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProteinManagementSystem.Database.Test.Integration", "ProteinManagementSystem.Database.Test.Integration\ProteinManagementSystem.Database.Test.Integration.csproj", "{D827F88E-FC9E-44B9-8D6B-3E1BCD1BA7BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5FF3382A-41F1-494B-9495-F2B80C83C21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FF3382A-41F1-494B-9495-F2B80C83C21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FF3382A-41F1-494B-9495-F2B80C83C21D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D827F88E-FC9E-44B9-8D6B-3E1BCD1BA7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D827F88E-FC9E-44B9-8D6B-3E1BCD1BA7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D827F88E-FC9E-44B9-8D6B-3E1BCD1BA7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D827F88E-FC9E-44B9-8D6B-3E1BCD1BA7BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
