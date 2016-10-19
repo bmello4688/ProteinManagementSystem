@@ -27,7 +27,7 @@ namespace ProteinManagementSystem.Database.Migrations
             //    );
             //
 
-            context.Proteins.AddOrUpdate(protein => protein.Name, ExcelToProteinDataExtractor.GetProteins().ToArray());
+            context.Proteins.AddOrUpdate(protein => protein.Name, ProteinDataExtractor.GetProteins().ToArray());
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProteinManagementSystem.Database
 {
-    internal static class ExcelToProteinDataExtractor
+    internal static class ProteinDataExtractor
     {
         private const int ColumnDataLength = 7;
 
