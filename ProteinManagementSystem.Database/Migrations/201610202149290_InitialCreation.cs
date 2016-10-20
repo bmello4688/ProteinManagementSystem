@@ -13,10 +13,10 @@ namespace ProteinManagementSystem.Database.Migrations
                     {
                         Name = c.String(nullable: false, maxLength: 128),
                         AminoAcidSequence = c.String(nullable: false),
-                        IsoelectricPoint = c.Double(nullable: true),
-                        MolecularWeight = c.Int(nullable:true),
+                        IsoelectricPoint = c.Double(nullable: false),
+                        MolecularWeight = c.Int(nullable: false),
                         Description = c.String(nullable: false),
-                        DateDiscovered = c.DateTime(nullable: true),
+                        DateDiscovered = c.DateTime(nullable: false),
                         DiscoveredBy = c.String(),
                     })
                 .PrimaryKey(t => t.Name);

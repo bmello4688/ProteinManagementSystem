@@ -17,7 +17,7 @@ namespace ProteinManagementSystem.Database
 
         public double IsoelectricPoint { get; set; }
 
-        public uint MolecularWeight { get; set; }
+        public int MolecularWeight { get; set; }
 
         [Required]
         public string Description { get; set; }

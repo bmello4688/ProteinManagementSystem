@@ -24,7 +24,7 @@ namespace ProteinManagementSystem.Database
                 proteins.Add(new Protein(commasSeperatedData[i], commasSeperatedData[i + 1], commasSeperatedData[i + 4])
                 {
                     IsoelectricPoint = Convert.ToDouble(commasSeperatedData[i + 2]),
-                    MolecularWeight = Convert.ToUInt32(commasSeperatedData[i + 3]),
+                    MolecularWeight = Convert.ToInt32(commasSeperatedData[i + 3]),
                     DateDiscovered = new DateTime(Convert.ToInt32(commasSeperatedData[i + 5]), 1, 1),
                     DiscoveredBy = commasSeperatedData[i + 6].TrimEnd()//contains a carriage return
                 });

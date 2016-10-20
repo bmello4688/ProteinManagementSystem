@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExcelToProteinDataExtractor.cs" />
-    <Compile Include="Migrations\201610200034509_InitialCreation.cs" />
-    <Compile Include="Migrations\201610200034509_InitialCreation.Designer.cs">
-      <DependentUpon>201610200034509_InitialCreation.cs</DependentUpon>
+    <Compile Include="Migrations\201610202149290_InitialCreation.cs" />
+    <Compile Include="Migrations\201610202149290_InitialCreation.Designer.cs">
+      <DependentUpon>201610202149290_InitialCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,8 +67,8 @@
     <None Include="Resources\proteins.csv" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610200034509_InitialCreation.resx">
-      <DependentUpon>201610200034509_InitialCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610202149290_InitialCreation.resx">
+      <DependentUpon>201610202149290_InitialCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

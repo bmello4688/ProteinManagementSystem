@@ -13,7 +13,7 @@ namespace ProteinManagementSystem.Database.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610200034509_InitialCreation"; }
+            get { return "201610202149290_InitialCreation"; }
         }
         
         string IMigrationMetadata.Source
