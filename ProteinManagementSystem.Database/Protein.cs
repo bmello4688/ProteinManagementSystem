@@ -8,11 +8,12 @@ namespace ProteinManagementSystem.Database
     public class Protein
     {
         //TODO: Find out constraints
+        [Key]
         [Required]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [Required]
-        public string AminoAcidSequence { get; private set; }
+        public string AminoAcidSequence { get; set; }
 
         public double IsoelectricPoint { get; set; }
 
@@ -25,7 +26,12 @@ namespace ProteinManagementSystem.Database
 
         public string DiscoveredBy { get; set; }
 
-        //TODO:Find out what information is required. For now all will be.
+
+        public Protein()
+        {
+
+        }
+
         public Protein(string name, string aminoAcidSequence, string description)
         {
             Name = name;

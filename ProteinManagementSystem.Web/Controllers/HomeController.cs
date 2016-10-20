@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProteinManagementSystem.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,13 @@ namespace ProteinManagementSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private ProteinContext context = new ProteinContext();
+        //Get
         public ActionResult Index()
         {
-            return View();
+            List<Protein> proteins = context.Proteins.ToList();
+
+            return View(proteins);
         }
 
         public ActionResult About()
