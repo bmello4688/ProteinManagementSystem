@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ProteinManagementSystem.Web.Models.ProteinViewModel>
+
+<tbody id="proteinTable">
+    @foreach (var protein in Model)
+    {
+        <tr>
+            <td>
+                <button data-toggle="modal" data-target="#myModal" data-name="@protein.Name" data-sequence="@protein.AminoAcidSequence">@protein.Name</button>
+            </td>
+            <td>
+                <span>@protein.Description</span>
+            </td>
+            <td>
+                <span>@protein.IsoelectricPoint</span>
+            </td>
+            <td>
+                <span>@protein.MolecularWeight</span>
+            </td>
+            <td>
+                <span>@protein.YearDiscovered</span>
+            </td>
+            <td>
+                <span>@protein.DiscoveredBy</span>
+            </td>
+        </tr>
+    }
+</tbody>
+

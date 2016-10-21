@@ -3,8 +3,10 @@ using ProteinManagementSystem.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace ProteinManagementSystem.Web.Controllers
 {
@@ -12,9 +14,14 @@ namespace ProteinManagementSystem.Web.Controllers
     {
         private ProteinContext context = new ProteinContext();
         //Get
-        public ActionResult Index()
+        public async Task<ActionResult> Index(string searchTerm)
         {
-            List<ProteinViewModel> proteins = context.Proteins.Take(20)
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                searchTerm = null;
+
+            var proteins = context.Proteins
+                .Where(p =>  searchTerm == null || p.Name.StartsWith(searchTerm) || p.AminoAcidSequence.StartsWith(searchTerm))
+                .Take(20)
                 .Select(protein => new ProteinViewModel()
                 {
                     Name = protein.Name,
@@ -24,9 +31,12 @@ namespace ProteinManagementSystem.Web.Controllers
                     MolecularWeight = protein.MolecularWeight,
                     YearDiscovered = protein.DateDiscovered.Year,
                     DiscoveredBy = protein.DiscoveredBy
-                }).ToList();
+                });
 
-            return View(proteins);
+            if (Request.IsAjaxRequest())
+                return PartialView("_Proteins", proteins);
+
+            return View(await proteins.ToListAsync());
         }
 
         public ActionResult About()

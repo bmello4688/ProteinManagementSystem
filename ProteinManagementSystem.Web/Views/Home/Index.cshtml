@@ -1,7 +1,7 @@
-﻿@{
+﻿@model IEnumerable<ProteinManagementSystem.Web.Models.ProteinViewModel>
+@{
     ViewBag.Title = "Home Page";
 }
-@model List<ProteinManagementSystem.Web.Models.ProteinViewModel>
 
 <!-- The Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -26,7 +26,12 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">Proteins</div>
-
+    <br />
+    <form method="get" action="@Url.Action("Index")" data-protein-ajax='true' data-protein-target="#proteinTable">
+        <input type="search" name="searchTerm" />
+        <input type="submit" value="Search by name or sequence" />
+    </form>
+    <br/>
     <div class="table-responsive">
         <!-- Table -->
         <table class="table table-striped">
@@ -40,31 +45,7 @@
                     <td>Discovered By</td>
                 </tr>
             </thead>
-            <tbody>
-                @foreach (var protein in Model)
-                {
-                    <tr>
-                        <td>
-                            <button data-toggle="modal" data-target="#myModal" data-name="@protein.Name" data-sequence="@protein.AminoAcidSequence">@protein.Name</button>
-                        </td>
-                        <td>
-                            <span>@protein.Description</span>
-                        </td>
-                        <td>
-                            <span>@protein.IsoelectricPoint</span>
-                        </td>
-                        <td>
-                            <span>@protein.MolecularWeight</span>
-                        </td>
-                        <td>
-                            <span>@protein.YearDiscovered</span>
-                        </td>
-                        <td>
-                            <span>@protein.DiscoveredBy</span>
-                        </td>
-                    </tr>
-                }
-            </tbody>
+            @Html.Partial("_Proteins", Model)
         </table>
     </div>
 </div>

@@ -9,7 +9,8 @@ namespace ProteinManagementSystem.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/protein").Include(
-                        "~/Scripts/proteinModal.js"));
+                        "~/Scripts/proteinModal.js",
+                        "~/Scripts/proteinSearch.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
