@@ -1,4 +1,5 @@
 ﻿using ProteinManagementSystem.Database;
+using ProteinManagementSystem.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,17 @@ namespace ProteinManagementSystem.Web.Controllers
         //Get
         public ActionResult Index()
         {
-            List<Protein> proteins = context.Proteins.ToList();
+            List<ProteinViewModel> proteins = context.Proteins.Take(20)
+                .Select(protein => new ProteinViewModel()
+                {
+                    Name = protein.Name,
+                    AminoAcidSequence = protein.AminoAcidSequence,
+                    Description = protein.Description,
+                    IsoelectricPoint = protein.IsoelectricPoint,
+                    MolecularWeight = protein.MolecularWeight,
+                    YearDiscovered = protein.DateDiscovered.Year,
+                    DiscoveredBy = protein.DiscoveredBy
+                }).ToList();
 
             return View(proteins);
         }

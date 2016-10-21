@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@model List<ProteinManagementSystem.Database.Protein>
+@model List<ProteinManagementSystem.Web.Models.ProteinViewModel>
 
 <!-- The Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -45,22 +45,22 @@
                 {
                     <tr>
                         <td>
-                            <button data-toggle="modal" data-target="#myModal" data-name="@protein.Name" data-sequence="@protein.AminoAcidSequence">@Html.DisplayFor(model => protein.Name)</button>
+                            <button data-toggle="modal" data-target="#myModal" data-name="@protein.Name" data-sequence="@protein.AminoAcidSequence">@protein.Name</button>
                         </td>
                         <td>
-                            <span>@Html.DisplayFor(model => protein.Description)</span>
+                            <span>@protein.Description</span>
                         </td>
                         <td>
-                            <span>@Html.DisplayFor(model => protein.IsoelectricPoint)</span>
+                            <span>@protein.IsoelectricPoint</span>
                         </td>
                         <td>
-                            <span>@Html.DisplayFor(model => protein.MolecularWeight)</span>
+                            <span>@protein.MolecularWeight</span>
                         </td>
                         <td>
-                            <span>@Html.DisplayFor(model => protein.DateDiscovered)</span>
+                            <span>@protein.YearDiscovered</span>
                         </td>
                         <td>
-                            <span>@Html.DisplayFor(model => protein.DiscoveredBy)</span>
+                            <span>@protein.DiscoveredBy</span>
                         </td>
                     </tr>
                 }
