@@ -22,6 +22,7 @@ namespace ProteinManagementSystem.Database
         [Required]
         public string Description { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:yyyy}")]
         public DateTime DateDiscovered { get; set; }
 
         public string DiscoveredBy { get; set; }

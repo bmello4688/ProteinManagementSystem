@@ -3,102 +3,68 @@
 }
 @model List<ProteinManagementSystem.Database.Protein>
 
-@*<div>
-    <h1>Proteins</h1>
+<!-- The Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body row">
+                <div class="col-sm-12">
+                    <p class="lead"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-    <div class="row">
-        <div class="col-md-2">
-            <span>Name</span>
-        </div>
-        <div class="col-md-2">
-            <span>Description</span>
-        </div>
-        <div class="col-md-2">
-            <span>Isoelectric Point</span>
-        </div>
-        <div class="col-md-2">
-            <span>Molecular Weight</span>
-        </div>
-        <div class="col-md-2">
-            <span>Year Discovered</span>
-        </div>
-        <div class="col-md-2">
-            <span>Discovered By</span>
-        </div>
-    </div>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Proteins</div>
 
-    @foreach (var protein in Model)
-    {
-        <div class="row">
-            <div class="col-md-2">
-                <a href="#">@protein.Name</a>
-            </div>
-            <div class="col-md-2">
-                <span>@protein.Description</span>
-            </div>
-            <div class="col-md-2">
-                <span>@protein.IsoelectricPoint</span>
-            </div>
-            <div class="col-md-2">
-                <span>@protein.MolecularWeight</span>
-            </div>
-            <div class="col-md-2">
-                <span>@protein.DateDiscovered.ToString("yyyy")</span>
-            </div>
-            <div class="col-md-2">
-                <span>@protein.DiscoveredBy</span>
-            </div>
-        </div>
-    }
-
-</div>*@
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Proteins</div>
-
-            <div class="table-responsive">
-                <!-- Table -->
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Description</td>
-                            <td>Isoelectric Point</td>
-                            <td>Molecular Weight</td>
-                            <td>Year Discovered</td>
-                            <td>Discovered By</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var protein in Model)
-                        {
-                        <tr>
-                            <td>
-                                <a>@protein.Name</a>
-                            </td>
-                            <td>
-                                <span>@protein.Description</span>
-                            </td>
-                            <td>
-                                <span>@protein.IsoelectricPoint</span>
-                            </td>
-                            <td>
-                                <span>@protein.MolecularWeight</span>
-                            </td>
-                            <td>
-                                <span>@protein.DateDiscovered.ToString("yyyy")</span>
-                            </td>
-                            <td>
-                                <span>@protein.DiscoveredBy</span>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="table-responsive">
+        <!-- Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Isoelectric Point</td>
+                    <td>Molecular Weight</td>
+                    <td>Year Discovered</td>
+                    <td>Discovered By</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var protein in Model)
+                {
+                    <tr>
+                        <td>
+                            <button data-toggle="modal" data-target="#myModal" data-name="@protein.Name" data-sequence="@protein.AminoAcidSequence">@Html.DisplayFor(model => protein.Name)</button>
+                        </td>
+                        <td>
+                            <span>@Html.DisplayFor(model => protein.Description)</span>
+                        </td>
+                        <td>
+                            <span>@Html.DisplayFor(model => protein.IsoelectricPoint)</span>
+                        </td>
+                        <td>
+                            <span>@Html.DisplayFor(model => protein.MolecularWeight)</span>
+                        </td>
+                        <td>
+                            <span>@Html.DisplayFor(model => protein.DateDiscovered)</span>
+                        </td>
+                        <td>
+                            <span>@Html.DisplayFor(model => protein.DiscoveredBy)</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
