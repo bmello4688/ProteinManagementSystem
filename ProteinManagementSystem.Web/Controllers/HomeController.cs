@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProteinManagementSystem.Web.Controllers
 {
@@ -69,6 +70,8 @@ namespace ProteinManagementSystem.Web.Controllers
         // GET: Home/Create
         public ActionResult Create()
         {
+            ViewData["formError"] = string.Empty;
+
             return View();
         }
 
@@ -78,9 +81,15 @@ namespace ProteinManagementSystem.Web.Controllers
         [Authorize]
         public ActionResult Create(ProteinViewModel proteinViewModel)
         {
-            if (ModelState.IsValid)
+            bool isNameUnique = contextDatabase.Proteins.Find(proteinViewModel.Name) == null;
+
+            if (!isNameUnique)
+                ViewData["formError"] = string.Format("Protein {0} already exists. Change the specified name.", proteinViewModel.Name);
+            else
+                ViewData["formError"] = string.Empty;
+
+            if (ModelState.IsValid && isNameUnique)
             {
-                //TODO:Add validation so that name is unique
                 var protein = ConvertToProtein(proteinViewModel);
 
                 contextDatabase.Proteins.Add(protein);
