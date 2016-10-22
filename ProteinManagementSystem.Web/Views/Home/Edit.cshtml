@@ -1,9 +1,9 @@
 ﻿@model ProteinManagementSystem.Web.Models.ProteinViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
 @Html.Partial("_CreateOrEditProteinForm", Model,
-         new ViewDataDictionary(ViewData) { { "header", "Protein" }, { "action", "Create" } }
+         new ViewDataDictionary(ViewData) { { "header", "Protein" }, { "action", "Edit" } }
         )
