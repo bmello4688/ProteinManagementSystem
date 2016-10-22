@@ -22,30 +22,46 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-<div class="panel panel-default">
-    <!-- Default panel contents -->
-    <div class="panel-heading">Proteins</div>
+<div class="container-fluid">
+    <div class="row">
+        <form method="get" action="@Url.Action("Create")">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Create A New Protein" act class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+        <br />
+    </div>
     <br />
-    <form method="get" action="@Url.Action("Index")" data-protein-ajax='true' data-protein-target="#proteinTable">
-        <input type="search" name="searchTerm" />
-        <input type="submit" value="Search by name or sequence" />
-    </form>
-    <br/>
-    <div class="table-responsive">
-        <!-- Table -->
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Description</td>
-                    <td>Isoelectric Point</td>
-                    <td>Molecular Weight</td>
-                    <td>Year Discovered</td>
-                    <td>Discovered By</td>
-                </tr>
-            </thead>
-            @Html.Partial("_Proteins", Model)
-        </table>
+    <div class="row">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><h6>Protein List</h6></div>
+            <br />
+
+            <form method="get" action="@Url.Action("Index")" data-protein-ajax='true' data-protein-target="#proteinTable">
+                <input type="search" name="searchTerm" />
+                <input type="submit" value="Search by name or sequence" />
+            </form>
+            <br />
+
+            <div class="table-responsive">
+                <!-- Table -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Description</td>
+                            <td>Isoelectric Point</td>
+                            <td>Molecular Weight</td>
+                            <td>Year Discovered</td>
+                            <td>Discovered By</td>
+                        </tr>
+                    </thead>
+                    @Html.Partial("_Proteins", Model)
+                </table>
+            </div>
+        </div>
     </div>
 </div>
