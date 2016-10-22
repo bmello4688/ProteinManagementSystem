@@ -3,7 +3,9 @@
 <tbody id="proteinTable">
     @foreach (var protein in Model)
     {
-        <tr>
+        var style = ViewData["searchTerm"] != null && @protein.AminoAcidSequence.Contains(ViewData["searchTerm"].ToString()) ? "warning" : "";
+        
+        <tr class="@style">
             <td>
                 <button data-toggle="modal" data-target="#myModal" data-name="@protein.Name" data-sequence="@protein.AminoAcidSequence">@protein.Name</button>
             </td>

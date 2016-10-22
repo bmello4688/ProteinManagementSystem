@@ -20,6 +20,8 @@ namespace ProteinManagementSystem.Web.Controllers
             if (string.IsNullOrWhiteSpace(searchTerm))
                 searchTerm = null;
 
+            ViewData["searchTerm"] = searchTerm;
+
             var proteins = contextDatabase.Proteins
                 .Where(p => searchTerm == null || p.Name.StartsWith(searchTerm) || p.AminoAcidSequence.StartsWith(searchTerm))
                 .Take(20)
@@ -78,6 +80,7 @@ namespace ProteinManagementSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                //TODO:Add validation so that name is unique
                 var protein = ConvertToProtein(proteinViewModel);
 
                 contextDatabase.Proteins.Add(protein);
