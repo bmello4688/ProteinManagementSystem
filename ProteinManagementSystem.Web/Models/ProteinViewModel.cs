@@ -9,10 +9,12 @@ namespace ProteinManagementSystem.Web.Models
     public class ProteinViewModel
     {
         [Required(ErrorMessage="Name is required")]
+        [MaxLength(128)]
         public string Name { get; set; }
 
         [Display(Name="Amino acid sequence")]
         [Required(ErrorMessage = "Amino acid sequence is required")]
+        [ProteinAminoAcidValidation]
         public string AminoAcidSequence { get; set; }
 
         [Required(ErrorMessage = "Description is required")]

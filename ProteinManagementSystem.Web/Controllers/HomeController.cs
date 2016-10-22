@@ -41,7 +41,7 @@ namespace ProteinManagementSystem.Web.Controllers
                 Description = protein.Description,
                 IsoelectricPoint = protein.IsoelectricPoint.ToString(),
                 MolecularWeight = protein.MolecularWeight.ToString(),
-                YearDiscovered = protein.DateDiscovered.Year.ToString(),
+                YearDiscovered = protein.DateDiscovered.HasValue ? protein.DateDiscovered.Value.Year.ToString() : null,
                 DiscoveredBy = protein.DiscoveredBy
             };
         }
@@ -53,11 +53,11 @@ namespace ProteinManagementSystem.Web.Controllers
                 DiscoveredBy = proteinViewModel.DiscoveredBy
             };
 
-            if (proteinViewModel.IsoelectricPoint != null)
+            if (!string.IsNullOrWhiteSpace(proteinViewModel.IsoelectricPoint))
                 protein.IsoelectricPoint = Convert.ToDouble(proteinViewModel.IsoelectricPoint);
-            if (proteinViewModel.MolecularWeight != null)
+            if (!string.IsNullOrWhiteSpace(proteinViewModel.MolecularWeight))
                 protein.MolecularWeight = Convert.ToInt32(proteinViewModel.MolecularWeight);
-            if (proteinViewModel.YearDiscovered != null)
+            if (!string.IsNullOrWhiteSpace(proteinViewModel.YearDiscovered))
                 protein.DateDiscovered = new DateTime(Convert.ToInt32(proteinViewModel.YearDiscovered), 1, 1);
 
             return protein;

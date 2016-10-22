@@ -15,14 +15,14 @@ namespace ProteinManagementSystem.Database
         [Required]
         public string AminoAcidSequence { get; set; }
 
-        public double IsoelectricPoint { get; set; }
+        public double? IsoelectricPoint { get; set; }
 
-        public int MolecularWeight { get; set; }
+        public int? MolecularWeight { get; set; }
 
         [Required]
         public string Description { get; set; }
 
-        public DateTime DateDiscovered { get; set; }
+        public DateTime? DateDiscovered { get; set; }
 
         public string DiscoveredBy { get; set; }
 
