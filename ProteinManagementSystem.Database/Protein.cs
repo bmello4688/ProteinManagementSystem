@@ -7,9 +7,12 @@ namespace ProteinManagementSystem.Database
 {
     public class Protein
     {
+        public static readonly int NameMaxLength = 128;
+
         //TODO: Find out constraints
         [Key]
         [Required]
+        [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
         [Required]

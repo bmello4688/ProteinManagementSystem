@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProteinManagementSystem.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ProteinManagementSystem.Web.Models
     public class ProteinViewModel
     {
         [Required(ErrorMessage="Name is required")]
-        [MaxLength(128)]
+        [MaxLength(Protein.NameMaxLength)]
         public string Name { get; set; }
 
         [Display(Name="Amino acid sequence")]
