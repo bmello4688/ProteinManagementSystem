@@ -41,7 +41,7 @@
             <br />
 
             <form method="get" action="@Url.Action("Index")" data-protein-ajax='true' data-protein-target="#proteinTable">
-                <input type="search" name="searchTerm" />
+                <input type="search" name="@ProteinManagementSystem.Web.Controllers.HomeController.SearchTerm" />
                 <input type="submit" value="Search by name or sequence" />
             </form>
             <br />

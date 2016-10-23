@@ -7,7 +7,9 @@ namespace ProteinManagementSystem.Database
 {
     public class Protein
     {
-        public static readonly int NameMaxLength = 128;
+        //TODO: Since const is not supposed to be used across assemblies
+        //What is best practices for shared constraints
+        public const int NameMaxLength = 128;
 
         //TODO: Find out constraints
         [Key]

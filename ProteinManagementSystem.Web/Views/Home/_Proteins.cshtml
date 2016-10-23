@@ -3,7 +3,7 @@
 <tbody id="proteinTable">
     @foreach (var protein in Model)
     {
-        var style = ViewData["searchTerm"] != null && @protein.AminoAcidSequence.Contains(ViewData["searchTerm"].ToString()) ? "warning" : "";
+        var style = ViewData[ProteinManagementSystem.Web.Controllers.HomeController.SearchTerm] != null && @protein.AminoAcidSequence.Contains(ViewData[ProteinManagementSystem.Web.Controllers.HomeController.SearchTerm].ToString()) ? "warning" : "";
         
         <tr class="@style">
             <td>

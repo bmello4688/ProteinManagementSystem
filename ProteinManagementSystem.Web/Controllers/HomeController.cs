@@ -14,6 +14,9 @@ namespace ProteinManagementSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
+        internal const string FormError = "formError";
+        internal const string SearchTerm = "searchTerm";
+
         private ProteinContext contextDatabase = new ProteinContext();
         //Get
         public ActionResult Index(string searchTerm)
@@ -21,7 +24,8 @@ namespace ProteinManagementSystem.Web.Controllers
             if (string.IsNullOrWhiteSpace(searchTerm))
                 searchTerm = null;
 
-            ViewData["searchTerm"] = searchTerm;
+            ViewData[SearchTerm] = searchTerm;
+            ViewData[FormError] = string.Empty;
 
             var proteins = contextDatabase.Proteins
                 .Where(p => searchTerm == null || p.Name.StartsWith(searchTerm) || p.AminoAcidSequence.StartsWith(searchTerm))
@@ -70,7 +74,7 @@ namespace ProteinManagementSystem.Web.Controllers
         // GET: Home/Create
         public ActionResult Create()
         {
-            ViewData["formError"] = string.Empty;
+            ViewData[FormError] = string.Empty;
 
             return View();
         }
@@ -84,9 +88,9 @@ namespace ProteinManagementSystem.Web.Controllers
             bool isNameUnique = contextDatabase.Proteins.Find(proteinViewModel.Name) == null;
 
             if (!isNameUnique)
-                ViewData["formError"] = string.Format("Protein {0} already exists. Change the specified name.", proteinViewModel.Name);
+                ViewData[FormError] = string.Format("Protein {0} already exists. Change the specified name.", proteinViewModel.Name);
             else
-                ViewData["formError"] = string.Empty;
+                ViewData[FormError] = string.Empty;
 
             if (ModelState.IsValid && isNameUnique)
             {
