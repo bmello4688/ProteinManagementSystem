@@ -14,8 +14,8 @@ namespace ProteinManagementSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
-        internal const string FormError = "formError";
-        internal const string SearchTerm = "searchTerm";
+        public static readonly string FormError = "formError";
+        public static readonly string SearchTerm = "searchTerm";
 
         private ProteinContext contextDatabase = new ProteinContext();
         //Get
