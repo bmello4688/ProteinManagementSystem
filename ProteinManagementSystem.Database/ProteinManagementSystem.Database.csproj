@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcelToProteinDataExtractor.cs" />
+    <Compile Include="ProteinDataExtractor.cs" />
     <Compile Include="Migrations\201610202149290_InitialCreation.cs" />
     <Compile Include="Migrations\201610202149290_InitialCreation.Designer.cs">
       <DependentUpon>201610202149290_InitialCreation.cs</DependentUpon>

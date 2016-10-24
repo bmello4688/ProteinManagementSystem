@@ -13,12 +13,13 @@ namespace ProteinManagementSystem.Database
 
         internal static List<Protein> GetProteins()
         {
-            string[] commasSeperatedData = Resources.proteins.Split(',', '\n');
+            char[] splitChars = new char[] { ',', '\n' };
+            string[] commasSeperatedData = Resources.proteins.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
             List<Protein> proteins = new List<Protein>();
 
             //skip the first row because it is header information
             //- 1 on length because there is an extra element at the of of the array
-            for (int i = ColumnDataLength; i < commasSeperatedData.Length - 1; i += ColumnDataLength)
+            for (int i = ColumnDataLength; i < commasSeperatedData.Length; i += ColumnDataLength)
             {
                 //TODO: Should probably add some validation
                 proteins.Add(new Protein(commasSeperatedData[i], commasSeperatedData[i + 1], commasSeperatedData[i + 4])
